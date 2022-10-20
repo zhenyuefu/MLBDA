@@ -1,0 +1,9 @@
+<!-- 
+FILMS (NoFilm, Titre, Nationalite, Realisateur, Couleur, Annee, Genre, Duree, Synopsis) ;
+ACTEURS (NoFilm, Acteur) ;
+DVD (NoFilm, NoExemplaire, Support, Statut) ;
+ABONNES (Code, Nom, Prenom, NoRue, CodePostal, Ville, Batiment, Etage, Digicode, Telephone, Email, Banque, Guichet, Compte, NbEmprunts) ;
+EMPRES ( NoFilm, NoExemplaire, CodeAbonne, DateEmpRes) ; 
+-->
+
+<?xml version="1.0" encoding="UTF-8"?>

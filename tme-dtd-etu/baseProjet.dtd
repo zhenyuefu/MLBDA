@@ -1,0 +1,45 @@
+<!ELEMENT base (film|acteur|empres)*>
+<!ELEMENT film (Titre, Nationalite, Realisateur, Couleur, Annee, Genre, Duree, Synopsis)>
+<!ELEMENT Titre (#PCDATA)>
+<!ELEMENT Nationalite (#PCDATA)>
+<!ELEMENT Realisateur (#PCDATA)>
+<!ELEMENT Couleur (#PCDATA)>
+<!ELEMENT Annee (#PCDATA)>
+<!ELEMENT Genre (#PCDATA)>
+<!ELEMENT Duree (#PCDATA)>
+<!ELEMENT Synopsis (#PCDATA)>
+<!ATTLIST film
+    noFilm ID #REQUIRED
+    acteurs IDREFS #REQUIRED
+>
+<!ELEMENT ACTEUR EMPTY>
+<!ATTLIST ACTEUR name ID #REQUIRED>
+<!ELEMENT DVD (Support, Statut)>
+<!ATTLIST DVD
+    noFilm IDREF #REQUIRED
+    noExemplaire ID #REQUIRED
+>
+<!ELEMENT ABONNES (Nom, Prenom, NoRue, CodePostal, Ville, Batiment, Etage, Digicode, Telephone, Email, Banque, Guichet, Compte, NbEmprunts)>
+<!ATTLIST ABONNES code ID #REQUIRED>
+<!ELEMENT Nom (#PCDATA)>
+<!ELEMENT Prenom (#PCDATA)>
+<!ELEMENT NoRue (#PCDATA)>
+<!ELEMENT CodePostal (#PCDATA)>
+<!ELEMENT Ville (#PCDATA)>
+<!ELEMENT Batiment (#PCDATA)>
+<!ELEMENT Etage (#PCDATA)>
+<!ELEMENT Digicode (#PCDATA)>
+<!ELEMENT Telephone (#PCDATA)>
+<!ELEMENT Email (#PCDATA)>
+<!ELEMENT Banque (#PCDATA)>
+<!ELEMENT Guichet (#PCDATA)>
+<!ELEMENT Compte (#PCDATA)>
+<!ELEMENT NbEmprunts (#PCDATA)>
+<!ELEMENT EMPRES (DateEmpRes)>
+<!ATTLIST EMPRES
+    NoFilm IDREF #REQUIRED
+    Noexemplaire IDREF #REQUIRED
+    CodeAbonne IDREF #REQUIRED
+>
+<!ELEMENT DateEmpRes EMPTY>
+<!ATTLIST DateEmpRes format (ANSI | ISO | FR) #OPTIONAL valeur #REQUIRED>
