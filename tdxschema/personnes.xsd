@@ -1,0 +1,26 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="personnes">
+        <xs:complexType>
+            <xs:sequence maxOccurs="unbounded">
+                <xs:element ref="personne" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="T-Personne">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string" />
+            <xs:element name="prenom" type="xs:string" />
+            <xs:element name="dateNaissance" type="xs:date" />
+            <xs:element name="genre" type="T-Genre" />
+            <xs:element name="enfants" type="T-Enfants" />
+        </xs:sequence>
+        <xs:attribute name="idP" type="xs:string" use="required" />
+    </xs:complexType>
+    <xs:simpleType name="T-Genre">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="F" />
+            <xs:enumeration value="M" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="personne" type="T-Personne" />
+</xs:schema>

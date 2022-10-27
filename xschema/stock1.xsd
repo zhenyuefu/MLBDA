@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE xs:schema SYSTEM "XMLSchema.dtd">
+<!--
+NOM Pr�nom:
+NOM Pr�nom:
+Binome:
+-->
+<!-- Le sch�ma du stock de pi�ces -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="stock">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="pieceBase" type="T_pieceBase" />
+                <xs:element name="pieceComposite" type='T_pieceComposite' />
+            </xs:choice>
+        </xs:complexType>
+        <xs:key name="pieceKey">
+            <xs:selector xpath="pieceBase|pieceComposite" />
+            <xs:field xpath="@numero" />
+        </xs:key>
+    </xs:element>
+
+
+    <xs:complexType name="T_pieceBase">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" />
+        </xs:sequence>
+        <xs:attribute name="numero" type="xs:integer" use="required" />
+    </xs:complexType>
+    <xs:complexType name="T_pieceComposite">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" />
+            <xs:element name="contient" type="xs:string" />
+        </xs:sequence>
+        <xs:attribute name="numero" type="xs:integer" use="required" />
+    </xs:complexType>
+</xs:schema>

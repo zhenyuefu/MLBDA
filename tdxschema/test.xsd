@@ -1,0 +1,21 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="A">
+        <xs:complexType mixed="true">
+            <xs:choice minOccurs="2" maxOccurs="3">
+                <xs:sequence>
+                    <xs:element name="B" minOccurs="0" type="xs:integer" />
+                </xs:sequence>
+                <xs:sequence>
+                    <xs:element name="C" maxOccurs="3" type="myint" />
+                    <xs:element name="D" minOccurs="0" type="xs:integer" />
+                </xs:sequence>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="myint">
+        <xs:restriction base="xsd:integer">
+            <xs:minExclusive value="1" />
+            <xs:maxInclusive value="6" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

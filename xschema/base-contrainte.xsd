@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE xs:schema SYSTEM "XMLSchema.dtd">
+
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name='base'>
+        <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="unbounded">
+                <xs:element name='restaurant' type='T_Restaurant' />
+                <xs:element name='ville' type='T_Ville' />
+            </xs:choice>
+        </xs:complexType>
+        <xs:key name="villeKey">
+            <xs:selector xpath="ville" />
+            <xs:field xpath="@nom" />
+        </xs:key>
+        <xs:keyref name="villeRef" refer="villeKey">
+            <xs:selector xpath='restaurant' />
+            <xs:field xpath='@ville' />
+        </xs:keyref>
+    </xs:element>
+    <xs:complexType name='T_Restaurant'>
+        <xs:sequence>
+            <xs:element name='fermeture' type='xs:string' minOccurs="0" />
+            <xs:element name='menu' type='T_Menu' minOccurs="2" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name='nom' type='xs:string' use='required' />
+        <xs:attribute name='etoile' type='T_etoile' use='required' />
+        <xs:attribute name='ville' type='xs:string' use='required' />
+    </xs:complexType>
+
+
+    <xs:simpleType name="T_etoile">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="3" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="T_Menu">
+        <xs:attribute name="nom" type="xs:string" />
+        <xs:attribute name="prix" type="xs:string" />
+    </xs:complexType>
+    <xs:complexType name='T_Ville'>
+        <xs:sequence minOccurs="0">
+            <xs:element name='plusBeauMonument'>
+                <xs:complexType>
+                    <xs:attribute name='nom' type='xs:string' use="required" />
+                    <xs:attribute name='tarif' type='xs:integer' use="required" />
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="nom" type='xs:string' use="required" />
+        <xs:attribute name="departement" type="xs:integer" use="required" />
+    </xs:complexType>
+</xs:schema>

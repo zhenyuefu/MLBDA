@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- 
+NOM Pr�nom:
+NOM Pr�nom:
+Binome: 
+-->
+<stock xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="stock1.xsd">
+    <pieceBase numero="0">
+        <description>piece0</description>
+    </pieceBase>
+    <pieceComposite numero="0">
+        <description>piece0</description>
+    </pieceComposite>
+</stock>
