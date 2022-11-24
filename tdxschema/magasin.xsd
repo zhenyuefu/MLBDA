@@ -1,4 +1,3 @@
- <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name='magasin'>
         <xs:complexType>
@@ -8,22 +7,22 @@
                         <xs:sequence>
                             <xs:element name='client' minOccurs='0' type='ClType' maxOccurs='unbounded' />
                         </xs:sequence>
-                        <xs:key name='clientKey'>
-                            <xs:selector xpath='client' />
-                            <xs:field xpath='@clientID' />
-                        </xs:key>
                     </xs:complexType>
+                    <xs:key name='clientKey'>
+                        <xs:selector xpath='client' />
+                        <xs:field xpath='@clientID' />
+                    </xs:key>
                 </xs:element>
                 <xs:element name='commandes'>
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name='commande' minOccurs='0' type='CdeType' maxOccurs='unbounded' />
                         </xs:sequence>
-                        <xs:keyref name='clientKeyRef' refer='clientKey'>
-                            <xs:selector xpath='commande' />
-                            <xs:field xpath='clientID' />
-                        </xs:keyref>
                     </xs:complexType>
+                    <xs:keyref name='clientKeyRef' refer='clientKey'>
+                        <xs:selector xpath='commande' />
+                        <xs:field xpath='clientID' />
+                    </xs:keyref>
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
@@ -44,8 +43,8 @@
             <xs:element name='article' type='xs:string' />
             <xs:element name='cout'>
                 <xs:simpleType>
-                    <xs:restriction base='xs:interger'>
-                        <xs:minInclusive value= 10 />
+                    <xs:restriction base='xs:integer'>
+                        <xs:minInclusive value="10" />
                         <!-- <xs:maxInclusive value="unbonded" />  pas necessire -->
                     </xs:restriction>
                 </xs:simpleType>

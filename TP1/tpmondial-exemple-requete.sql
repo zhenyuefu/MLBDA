@@ -231,9 +231,10 @@ LIMIT 3
 -- La densité de population (exprimée en nombre d’habitants par km2) de la zone formée de l’Algérie et la Lybie ainsi que de tous leurs voisins directs.
 ;
 SELECT *
-    from country c ,borders b
-    where (c.code = b.country1
-    and c.name = 'Algeria')
-  or (c.code = b.country2
-    and c.name = 'Algeria')
+FROM country c,
+     borders b
+WHERE (c.code = b.country1
+    AND c.name = 'Algeria')
+   OR (c.code = b.country2
+    AND c.name = 'Algeria')
 ;

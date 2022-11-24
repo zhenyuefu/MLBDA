@@ -1,6 +1,6 @@
 -- calculer le volume, la masse et le prix d'une piece de base
 CREATE OR REPLACE TYPE BODY t_piece_base AS
-    MEMBER FUNCTION volume RETURN NUMBER IS
+    MEMBER FUNCTION volume RETURN Number IS
     BEGIN
         RETURN 0;
     END volume;
@@ -8,13 +8,13 @@ CREATE OR REPLACE TYPE BODY t_piece_base AS
         mv Number;
     BEGIN
         SELECT DEREF(self.est_en).masse_volumique INTO mv FROM dual;
-        RETURN self.VOLUME() * mv;
+        RETURN self.volume() * mv;
     END;
     OVERRIDING MEMBER FUNCTION prix RETURN Number IS
         pv Number;
     BEGIN
         SELECT DEREF(self.est_en).prix_au_kilo INTO pv FROM dual;
-        RETURN self.VOLUME() * pv;
+        RETURN self.volume() * pv;
     END;
 END;
 
