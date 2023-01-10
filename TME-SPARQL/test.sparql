@@ -1,0 +1,19 @@
+PREFIX prefix: <http://prefix.cc/>
+PREFIX co: <http://purl.org/ontology/co/core#>
+PREFIX coun: <http://www.daml.org/2001/09/countries/iso-3166-ont#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix : <http://www.semwebtech.org/mondial/10/meta#>
+prefix mondial: <http://www.semwebtech.org/mondial/10/>
+base <http://www.semwebtech.org/mondial/10/>
+SELECT distinct ?country ?countryName
+WHERE {
+  ?country a :Country .
+  ?country :name ?countryName .
+  ?country :isMember ?org .
+  MINUS {
+    ?country a :Country .
+    <countries/FL> :isMember ?fo .
+    MINUS { ?country :isMember ?fo }
+  }
+}

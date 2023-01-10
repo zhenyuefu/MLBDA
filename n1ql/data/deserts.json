@@ -1,0 +1,4 @@
+{"country": "Libya", "deserts": [{"area": 300000, "name": "Fesan"}, {"area": 200000, "name": "Erg Rebiana"}, {"area": 1100000, "name": "Libyan Desert"}]}
+{"country": "Tunisia", "deserts": [{"area": 150000, "name": "Grand Erg Est"}]}
+{"country": "Egypt", "deserts": [{"area": 1100000, "name": "Libyan Desert"}]}
+{"country": "Algeria", "deserts": [{"area": 150000, "name": "Erg Igidi"}, {"area": 160000, "name": "Tanezrouft"}, {"area": 200000, "name": "Grand Erg Ouest"}, {"area": 150000, "name": "Grand Erg Est"}]}

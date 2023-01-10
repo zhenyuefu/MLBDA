@@ -1,0 +1,11 @@
+<!ELEMENT SocialNetwork (user+| post*) >
+<!ELEMENT user (mail ,password? , friend* ) >
+<!ELEMENT mail (#PCDATA)>
+<!ELEMENT password (#PCDATA)>
+<!ATTLIST user idU ID #REQUIRED>
+<!ELEMENT friend EMPTY>
+<!ATTLIST friend idF IDREF #REQUIRED>
+<!ELEMENT post (#PCDATA)>
+<!ATTLIST post type CDATA >
+<!ATTLIST post idP ID #REQUIRED>
+<!ATTLIST post author IDREF #REQUIRED>
